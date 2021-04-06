@@ -25,7 +25,7 @@ def requirements():
 
 
 setup(
-    name="mtx_app",
+    name="mtx_phenotype",
     version="0.1.0",
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
     url="",

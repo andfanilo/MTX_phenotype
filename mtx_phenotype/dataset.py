@@ -5,7 +5,7 @@ from io import StringIO
 import pandas as pd
 import streamlit as st
 
-from src.constants import *
+from mtx_phenotype.constants import *
 
 
 @st.cache

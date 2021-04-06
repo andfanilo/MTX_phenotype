@@ -7,8 +7,8 @@ import pandas as pd
 import plotly.express as px
 import plotly.io as pio
 
-from src.constants import *
-from src.diagnostics import DiagnoseTypes
+from mtx_phenotype.constants import *
+from mtx_phenotype.diagnostics import DiagnoseTypes
 
 pio.templates.default = "plotly_white"
 

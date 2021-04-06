@@ -8,8 +8,8 @@ from typing import List, Union
 import pandas as pd
 import streamlit as st
 
-from src.constants import *
-from src.processing import is_streak_longer_than_duration
+from mtx_phenotype.constants import *
+from mtx_phenotype.processing import is_streak_longer_than_duration
 
 
 class AbstractDiagnose(ABC):

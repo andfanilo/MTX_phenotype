@@ -3,19 +3,19 @@ from typing import List
 import pandas as pd
 import streamlit as st
 
-from src.constants import *
-from src.dataset import generate_download_link
-from src.dataset import load_infusion_times
-from src.dataset import load_samples
-from src.dataset import merge_samples_to_treatment
-from src.dataset import remove_patients_with_duplicate_treatments
-from src.diagnostics import DiagnoseTypes
-from src.diagnostics import DiagnosticClasses
-from src.visualization import beta_visualize_dme
-from src.visualization import visualize_detected
-from src.visualization import visualize_detected_by_patient
-from src.visualization import visualize_patient
-from src.visualization import visualize_summary_detection
+from mtx_phenotype.constants import *
+from mtx_phenotype.dataset import generate_download_link
+from mtx_phenotype.dataset import load_infusion_times
+from mtx_phenotype.dataset import load_samples
+from mtx_phenotype.dataset import merge_samples_to_treatment
+from mtx_phenotype.dataset import remove_patients_with_duplicate_treatments
+from mtx_phenotype.diagnostics import DiagnoseTypes
+from mtx_phenotype.diagnostics import DiagnosticClasses
+from mtx_phenotype.visualization import beta_visualize_dme
+from mtx_phenotype.visualization import visualize_detected
+from mtx_phenotype.visualization import visualize_detected_by_patient
+from mtx_phenotype.visualization import visualize_patient
+from mtx_phenotype.visualization import visualize_summary_detection
 
 
 def main():

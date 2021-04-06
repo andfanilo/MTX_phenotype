@@ -2,9 +2,9 @@ import pandas as pd
 
 from pandas.testing import assert_series_equal
 
-from src.constants import *
-from src.processing import compute_streaks_of_detection
-from src.processing import is_streak_longer_than_duration
+from mtx_phenotype.constants import *
+from mtx_phenotype.processing import compute_streaks_of_detection
+from mtx_phenotype.processing import is_streak_longer_than_duration
 
 
 def test_compute_streaks():
