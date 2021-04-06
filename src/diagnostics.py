@@ -539,14 +539,15 @@ class DME(AbstractDiagnose):
         # st.write((criteria_three | criteria_four | criteria_five).value_counts())
         # st.write(((criteria_one | criteria_two) & (criteria_three | criteria_four | criteria_five)).value_counts())
 
-        # Detection = Criteria 1 or 2 + at least one of criteria 3,4,5
-        self.data[DETECTION] = False
-        self.data.loc[
-            (criteria_one | criteria_two)
-            & (criteria_three | criteria_four | criteria_five),
-            DETECTION,
-        ] = True
-
+        # to do the intersection we need to merge both criterias for treatment number
+        sample_with_positive_criteria = self.data[[PATIENT_ID, INFUSION_NO]]
+        sample_with_positive_criteria["crea_criteria"] = (criteria_one | criteria_two)
+        sample_with_positive_criteria["mtx_criteria"] = (criteria_three | criteria_four | criteria_five)
+        treatment_with_positive_critera = sample_with_positive_criteria.groupby([PATIENT_ID, INFUSION_NO]).max().reset_index()
+        treatment_with_positive_critera[DETECTION] = treatment_with_positive_critera["crea_criteria"] & treatment_with_positive_critera["mtx_criteria"]
+        treatment_with_positive_critera = treatment_with_positive_critera.drop(["crea_criteria", "mtx_criteria"], axis=1)
+        self.data = self.data.merge(treatment_with_positive_critera, on=[PATIENT_ID, INFUSION_NO], how="left")
+        self.data[DETECTION] = self.data[DETECTION].astype(bool)
 
 # choose classes to expose to main app
 DiagnosticClasses = [
